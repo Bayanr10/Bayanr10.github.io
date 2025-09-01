@@ -1,8 +1,8 @@
 :root {
-  --primary-color: #272727; /* A dark, deep blue-gray */
-  --secondary-color: #1b1b1b; /* Slightly lighter for backgrounds */
-  --text-color: #c9c9c9; /* Off-white for readability */
-  --accent-color: #40ff4a; /* A striking red for highlights */
+  --primary-color: #272727;
+  --secondary-color: #1b1b1b; 
+  --text-color: #c9c9c9; 
+  --accent-color: #40ff4a;
   --card-bg-color: #c9c9c9;
   --link-color: #c9c9c9;
   --font-family: "Questrial", sans-serif;
@@ -12,7 +12,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  overflow-y: hidden;  /* stops horizontal scroll */
+  overflow-y: hidden; 
 }
 
 * {
@@ -61,7 +61,7 @@ a:hover {
 }
 
 .button:hover {
-  background: #c0392b; /* A darker red */
+  background: #c0392b;
 }
 
 /*
@@ -104,7 +104,7 @@ a:hover {
 
 .main-layout {
   display: flex;
-  justify-content: flex-start; /* Pushes the items to the far ends of the container */
+  justify-content: flex-start;
 }
 
 /*
@@ -120,11 +120,11 @@ a:hover {
   margin: 20px;
   max-height: 87vh;
   overflow-y: auto;
-  scrollbar-width: none;   /* Firefox */
+  scrollbar-width: none; /* Firefox */
 }
 
 .sidebar::-webkit-scrollbar {
-  display: none;           /* Chrome, Safari, Edge */
+  display: none; /* Chrome, Safari, Edge */
 }
 
 .sidebar img {
@@ -192,9 +192,29 @@ a:hover {
 
 .main-content {
   padding: 20px;
-  flex: 1; /* Allows the main content to grow and fill the remaining space */
+  flex: 1;
   background-color: var(--primary-color);
   color: var(--text-color);
   margin: 20px;
   border-radius: 10px;
+}
+
+
+/*
+  LOBBY MUSIC!!
+*/
+.music-player {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.music-player h2 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.music-player audio {
+  width: 100%;
 }
