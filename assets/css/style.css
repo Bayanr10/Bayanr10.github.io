@@ -197,6 +197,14 @@ a:hover {
   color: var(--text-color);
   margin: 20px;
   border-radius: 10px;
+  /* FOR SCROLLING!!! */
+  max-height: 87vh;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.main-content::-webkit-scrollbar {
+  display: none; 
 }
 
 
@@ -217,4 +225,349 @@ a:hover {
 
 .music-player audio {
   width: 100%;
+}
+
+
+/*
+  BLOG POST STYLING
+*/
+
+.blog-post {
+    background-color: var(--secondary-color); 
+    padding: 20px;
+    border-radius: 10px; 
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+}
+
+.blog-post h3 {
+    color: #F4D58D; 
+    margin-bottom: 10px;
+}
+
+.blog-post .post-meta {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #aaa; 
+    margin-bottom: 15px;
+}
+
+.blog-post p {
+    margin-bottom: 15px; 
+}
+
+.blog-post p:last-child {
+    margin-bottom: 0; 
+}
+
+
+/*
+  PHOTO GALLERY STYLES
+*/
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px; 
+}
+
+.photo-item {
+  background-color: var(--secondary-color); 
+  border-radius: 10px;
+  overflow: hidden; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.photo-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.photo-item a {
+  display: block;
+  line-height: 0; 
+}
+
+.photo-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.photo-item .caption {
+  padding: 15px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+
+/*
+  LIGHTBOX STYLES 
+*/
+
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox .lightbox-close {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 90vw;  
+  max-height: 85vh; 
+  border: 3px solid var(--accent-color);
+  border-radius: 5px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+
+/*
+  CONTACT FORM STYLES
+*/
+
+.main-content-heading {
+    text-align: center;
+}
+
+.contact-intro {
+    text-align: center;
+}
+
+.main-content p {
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 20px auto 20px auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block; 
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 2px solid var(--secondary-color);
+    background-color: var(--secondary-color); 
+    color: var(--text-color); 
+    font-family: var(--font-family); 
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+#contact-main-content {
+    width: 740px; 
+    flex: none; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-form .button {
+    font-size: 1.1rem;
+    padding: 12px 25px;
+    background: var(--accent-color);
+    color: var(--primary-color); 
+    font-weight: bold;
+}
+
+.contact-form .button:hover {
+    background: #2eff3a;
+    color: var(--primary-color);
+}
+
+
+/*
+  LINKS PAGE STYLES
+*/
+
+.links-list {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.link-item:hover {
+    transform: scale(1.02);
+    background-color: var(--primary-color);
+}
+
+.link-thumbnail {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+    flex-shrink: 0;
+    border: 3px solid var(--accent-color);
+}
+
+.link-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.link-text h3 {
+    color: #F4D58D;
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+.link-text p {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/*
+  HOME PAGE PREVIEW SECTIONS
+*/
+
+.home-section {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.home-section h2 {
+    color: #F4D58D; 
+    margin-bottom: 15px;
+    border-bottom: 2px solid #8D0801;
+    padding-bottom: 0.5rem;
+}
+
+.home-section h2 a {
+    color: #F4D58D;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.home-section h2 a:hover {
+    color: var(--accent-color);
+}
+
+.home-section .blog-post {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.read-more {
+    font-weight: bold;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/*
+  HOME PAGE MINI PHOTO GALLERY
+*/
+
+.home-photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px;
+}
+
+.home-photo-item {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.home-photo-item:hover {
+    transform: scale(1.03);
+}
+
+.home-photo-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.home-photo-item .caption {
+    padding: 10px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #aaa;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.home-photo-item.view-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    min-height: 150px;
+}
+
+.home-photo-item.view-more a {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.home-photo-item.view-more a:hover {
+    color: white;
 }
