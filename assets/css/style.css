@@ -408,13 +408,13 @@ a:hover {
 .contact-form .button {
     font-size: 1.1rem;
     padding: 12px 25px;
-    background: var(--accent-color);
+    background: var(--text-color);
     color: var(--primary-color); 
     font-weight: bold;
 }
 
 .contact-form .button:hover {
-    background: #2eff3a;
+    background: var(--accent-color);
     color: var(--primary-color);
 }
 
