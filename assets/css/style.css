@@ -74,7 +74,7 @@ a:hover {
   padding: 1rem 20px;
   margin: 0 auto;
   z-index: 1000;
-  border-radius: 10px;
+  border-radius: 0 0 10px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -401,6 +401,13 @@ a:hover {
 #contact-main-content {
     width: 740px; 
     flex: none; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#links-main-content {
+    width: 840px;
+    flex: none;
     margin-left: auto;
     margin-right: auto;
 }
