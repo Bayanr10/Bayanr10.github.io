@@ -1,33 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const moviesContainer = document.getElementById('recent-movies-container');
+    // photos.html
+    const galleryContainer = document.querySelector('.photo-gallery');
+    if (galleryContainer) {
+        Papa.parse('assets/photos.csv', {
+            download: true,
+            header: true,
+            complete: function(results) {
+                results.data.forEach((photo, index) => {
+                    if (!photo.filename) return;
 
-    Papa.parse('assets/letterboxd/reviews.csv', {
-        download: true,
-        header: true,
-        complete: function(results) {
-            let movies = results.data;
-            
-            // Sort movies by 'Watched Date' in descending order to get the most recent ones first
-            movies.sort((a, b) => new Date(b['Watched Date']) - new Date(a['Watched Date']));
+                    const id = `img${index + 1}`;
+                    
+                    const photoItem = document.createElement('div');
+                    photoItem.className = 'photo-item';
+                    photoItem.innerHTML = `
+                        <a href="#${id}">
+                            <img src="assets/images/${photo.filename}" alt="${photo.filename}">
+                        </a>
+                        <div class="caption">${photo.caption}</div>
+                    `;
+                    galleryContainer.appendChild(photoItem);
 
-            // Take the first 5 recent movies
-            const recentMovies = movies.slice(0, 10);
+                    const lightbox = document.createElement('div');
+                    lightbox.className = 'lightbox';
+                    lightbox.id = id;
+                    lightbox.innerHTML = `
+                        <a href="#" class="lightbox-close">
+                            <img src="assets/images/${photo.filename}" alt="${photo.filename}">
+                        </a>
+                    `;
+                    document.body.appendChild(lightbox);
+                });
+            }
+        });
+    }
 
-            // Create a list to hold the movie entries
-            const moviesList = document.createElement('ul');
-
-            // Iterate through the recent movies and create HTML for each
-            recentMovies.forEach(movie => {
-                const listItem = document.createElement('li');
-                listItem.innerHTML = `
-                    <h4>${movie.Name} (${movie.Year})</h4>
-                    <p>Rating: ${movie.Rating}/5</p>
-                `;
-                moviesList.appendChild(listItem);
-            });
-
-            // Append the list to the container
-            moviesContainer.appendChild(moviesList);
-        }
-    });
 });
